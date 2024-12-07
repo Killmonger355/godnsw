@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Service NSW">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#121212">
+    <link rel="apple-touch-icon" href="https://i.ibb.co/TRkcsm1/460x0w.webp">
+    <title>Service NSW</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .app-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            -ms-overflow-style: none; /* Hides scrollbars in IE and Edge */
+            scrollbar-width: none; /* Hides scrollbars in Firefox */
+        }
+
+        .app-content::-webkit-scrollbar {
+            display: none; /* Hides scrollbars in WebKit browsers */
+        }
+
+        .section {
+            width: 100%;
+            flex-shrink: 0;
+        }
+
+        .background-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .sticky-navbar-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 10;
+        }
+
+        .sticky-navbar-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            max-height: 100px;
+            z-index: 10;
+        }
+
+        .transition-container {
+            position: fixed;
+            top: 0;
+            left: 100%; /* Initially hidden to the right */
+            width: 100%;
+            height: 100%;
+            overflow-y: auto; /* Allows vertical scrolling */
+            -ms-overflow-style: none; /* Hides scrollbars in IE and Edge */
+            scrollbar-width: none; /* Hides scrollbars in Firefox */
+            z-index: 100; /* Higher z-index to cover everything */
+            background-color: #121212;
+            transition: left 0.5s ease; /* Smooth slide-in transition */
+        }
+
+        .transition-container::-webkit-scrollbar {
+            display: none; /* Hides scrollbars in WebKit browsers */
+        }
+
+        .transition-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .show {
+            left: 0; /* Slide in to cover content */
+        }
+
+        .hidden-trigger {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: transparent;
+            z-index: 101; /* Above the content */
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hidden Div Trigger -->
+    <div class="hidden-trigger" onclick="hideTransitionImage()"></div>
+
+    <!-- Sticky Navbar at the Top -->
+    <img
+        src="https://i.ibb.co/2q26skg/Frame-3.png"
+        alt="Sticky Navbar Top"
+        class="sticky-navbar-top">
+
+    <div class="app-content">
+        <!-- First Section -->
+        <div class="section" onclick="showTransitionImage()">
+            <img
+                src="https://i.ibb.co/jZbkwmn/Frame-10.png"
+                alt="First Section Background"
+                class="background-image">
+        </div>
+
+        <!-- Second Section -->
+        <div class="section">
+            <img
+                src="https://i.ibb.co/1QbssJv/Iphone-13-pro-max-4-3-1.png"
+                alt="Second Section Background"
+                class="background-image">
+        </div>
+    </div>
+
+    <!-- Transition Container -->
+    <div class="transition-container" id="transitionContainer">
+        <img
+            src="https://i.ibb.co/KKGmrSM/462578460-926792895674640-18582643195996657-n.png"
+            alt="Transition Image"
+            class="transition-image">
+    </div>
+
+    <!-- Sticky Navbar at the Bottom -->
+    <img
+        src="https://i.ibb.co/b5wfFwf/Frame-5-1-1.png"
+        alt="Sticky Navbar Bottom"
+        class="sticky-navbar-bottom">
+
+    <script>
+        function showTransitionImage() {
+            const transitionContainer = document.getElementById('transitionContainer');
+            transitionContainer.style.left = '0'; // Slide in from right
+        }
+
+        function hideTransitionImage() {
+            const transitionContainer = document.getElementById('transitionContainer');
+            transitionContainer.style.left = '100%'; // Slide out to right
+        }
+    </script>
+</body>
+</html>
